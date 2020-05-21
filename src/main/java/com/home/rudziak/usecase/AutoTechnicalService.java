@@ -1,9 +1,12 @@
 package com.home.rudziak.usecase;
 
+import com.home.rudziak.core.ObjectFactory;
+import com.home.rudziak.usecase.model.Car;
+
 public class AutoTechnicalService {
 
-    private Administrator administrator = new AdministratorImpl();
-    private Washer washer = new WasherImpl();
+    private Administrator administrator = ObjectFactory.getInstance().createObject(Administrator.class);
+    private Washer washer = ObjectFactory.getInstance().createObject(Washer.class);
 
     public void serve(Car car) {
         administrator.register(car);
