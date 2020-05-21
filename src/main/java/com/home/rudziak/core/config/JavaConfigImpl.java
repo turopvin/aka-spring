@@ -31,4 +31,9 @@ public class JavaConfigImpl implements Config {
         return next;
 
     }
+
+    @Override
+    public <T> Set<Class<? extends T>> getAllImplClass(Class<T> ifc) {
+        return scanner.getSubTypesOf(ifc);
+    }
 }
