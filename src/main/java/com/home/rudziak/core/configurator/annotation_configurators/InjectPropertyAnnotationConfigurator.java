@@ -1,5 +1,6 @@
-package com.home.rudziak.core.configuration_processor.annotation_processor;
+package com.home.rudziak.core.configurator.annotation_configurators;
 
+import com.home.rudziak.core.configurator.ObjectConfigurator;
 import com.home.rudziak.usecase.impl.InjectProperty;
 import lombok.SneakyThrows;
 

@@ -2,7 +2,7 @@ package com.home.rudziak.core;
 
 import com.home.rudziak.core.config.Config;
 import com.home.rudziak.core.config.JavaConfigImpl;
-import com.home.rudziak.core.configuration_processor.annotation_processor.ObjectConfigurator;
+import com.home.rudziak.core.configurator.ObjectConfigurator;
 import com.home.rudziak.usecase.Washer;
 import com.home.rudziak.usecase.impl.AutomatedWasher;
 import lombok.SneakyThrows;
