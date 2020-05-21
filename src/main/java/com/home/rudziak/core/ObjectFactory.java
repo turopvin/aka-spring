@@ -2,25 +2,27 @@ package com.home.rudziak.core;
 
 import com.home.rudziak.core.config.Config;
 import com.home.rudziak.core.config.JavaConfigImpl;
+import com.home.rudziak.core.configuration_processor.annotation_processor.ObjectConfigurator;
 import com.home.rudziak.usecase.Washer;
 import com.home.rudziak.usecase.impl.AutomatedWasher;
-import com.home.rudziak.usecase.impl.InjectProperty;
 import lombok.SneakyThrows;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.lang.reflect.Field;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-
-import static java.util.stream.Collectors.toMap;
 
 public class ObjectFactory {
     private static ObjectFactory ourInstance = new ObjectFactory();
     private Config config;
+    private List<ObjectConfigurator> configurators = new ArrayList<>();
 
+    @SneakyThrows
     private ObjectFactory() {
-        config = new JavaConfigImpl("com.home", new HashMap<>(Map.of(Washer.class, AutomatedWasher.class)));
+        this.config = new JavaConfigImpl("com.home", new HashMap<>(Map.of(Washer.class, AutomatedWasher.class)));
+        for (Class<? extends ObjectConfigurator> aClass : this.config.getAllImplClass(ObjectConfigurator.class)) {
+            configurators.add(aClass.getDeclaredConstructor().newInstance());
+        }
     }
 
     public static ObjectFactory getInstance() {
@@ -35,21 +37,7 @@ public class ObjectFactory {
         }
         final T t = implClass.getDeclaredConstructor().newInstance();
 
-        for (Field field : implClass.getDeclaredFields()) {
-            final InjectProperty annotation = field.getAnnotation(InjectProperty.class);
-            final String path = ClassLoader.getSystemClassLoader().getResource("application.properties").getPath();
-            final Map<String, String> propertiesMap = new BufferedReader(new FileReader(path))
-                    .lines()
-                    .map(s -> s.split("="))
-                    .collect(toMap(s1 -> s1[0], s2 -> s2[1]));
-
-            if (annotation != null) {
-                String value = annotation.value().isEmpty() ? propertiesMap.get(field.getName()) : propertiesMap.get(annotation.value());
-                field.setAccessible(true);
-                field.set(t, value);
-            }
-        }
-
+        configurators.forEach(c -> c.configure(t));
 
         return t;
     }
