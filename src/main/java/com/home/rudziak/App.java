@@ -1,7 +1,7 @@
 package com.home.rudziak;
 
 import com.home.rudziak.usecase.AutoTechnicalService;
-import com.home.rudziak.usecase.Car;
+import com.home.rudziak.usecase.model.Car;
 
 /**
  * Usecase example
