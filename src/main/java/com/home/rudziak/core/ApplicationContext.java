@@ -1,14 +1,18 @@
 package com.home.rudziak.core;
 
 import com.home.rudziak.core.config.Config;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class ApplicationContext {
 
+    @Setter
     private ObjectFactory factory;
     private Map<Class, Object> container = new ConcurrentHashMap<>();
+    @Getter
     private Config config;
 
     public ApplicationContext(Config config) {
