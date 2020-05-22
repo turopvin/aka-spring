@@ -1,6 +1,6 @@
 package com.home.rudziak.core.configurator;
 
-import com.home.rudziak.core.ObjectFactory;
+import com.home.rudziak.core.ApplicationContext;
 import com.home.rudziak.core.configurator.annotations.InjectByType;
 import lombok.SneakyThrows;
 
@@ -10,11 +10,11 @@ public class InjectByTypeAnnotationObjectConfigurator implements ObjectConfigura
 
     @SneakyThrows
     @Override
-    public void configure(Object t) {
+    public void configure(Object t, ApplicationContext context) {
         final Class<?> aClass = t.getClass();
         for (Field field : aClass.getDeclaredFields()) {
             if (field.isAnnotationPresent(InjectByType.class)) {
-                final Object object = ObjectFactory.getInstance().createObject(field.getType());
+                final Object object = context.getObject(field.getType());
                 field.setAccessible(true);
                 field.set(t, object);
             }

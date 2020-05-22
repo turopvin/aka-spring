@@ -1,5 +1,6 @@
 package com.home.rudziak.core.configurator.annotation_configurators;
 
+import com.home.rudziak.core.ApplicationContext;
 import com.home.rudziak.core.configurator.ObjectConfigurator;
 import com.home.rudziak.core.configurator.annotations.InjectProperty;
 import lombok.SneakyThrows;
@@ -26,7 +27,7 @@ public class InjectPropertyAnnotationConfigurator implements ObjectConfigurator 
 
     @SneakyThrows
     @Override
-    public void configure(Object t) {
+    public void configure(Object t, ApplicationContext context) {
         final Class<?> implClass = t.getClass();
         for (Field field : implClass.getDeclaredFields()) {
             final InjectProperty annotation = field.getAnnotation(InjectProperty.class);
