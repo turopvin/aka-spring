@@ -1,6 +1,7 @@
-package com.home.rudziak.core.configurator;
+package com.home.rudziak.core.configurator.object_configurators;
 
 import com.home.rudziak.core.ApplicationContext;
+import com.home.rudziak.core.configurator.ObjectConfigurator;
 import com.home.rudziak.core.configurator.annotations.InjectByType;
 import lombok.SneakyThrows;
 

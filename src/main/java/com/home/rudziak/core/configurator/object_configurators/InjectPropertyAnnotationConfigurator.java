@@ -1,4 +1,4 @@
-package com.home.rudziak.core.configurator.annotation_configurators;
+package com.home.rudziak.core.configurator.object_configurators;
 
 import com.home.rudziak.core.ApplicationContext;
 import com.home.rudziak.core.configurator.ObjectConfigurator;
