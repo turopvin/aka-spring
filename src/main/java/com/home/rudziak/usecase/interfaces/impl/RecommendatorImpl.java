@@ -1,4 +1,7 @@
-package com.home.rudziak.usecase.impl;
+package com.home.rudziak.usecase.interfaces.impl;
+
+import com.home.rudziak.core.configurator.annotations.InjectProperty;
+import com.home.rudziak.usecase.interfaces.Recommendator;
 
 public class RecommendatorImpl implements Recommendator {
 

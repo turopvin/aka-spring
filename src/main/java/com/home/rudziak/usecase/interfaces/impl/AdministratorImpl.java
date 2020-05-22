@@ -1,7 +1,8 @@
-package com.home.rudziak.usecase.impl;
+package com.home.rudziak.usecase.interfaces.impl;
 
 import com.home.rudziak.core.ObjectFactory;
-import com.home.rudziak.usecase.Administrator;
+import com.home.rudziak.usecase.interfaces.Administrator;
+import com.home.rudziak.usecase.interfaces.Recommendator;
 import com.home.rudziak.usecase.model.Car;
 
 public class AdministratorImpl implements Administrator {

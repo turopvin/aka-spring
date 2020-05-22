@@ -1,6 +1,6 @@
-package com.home.rudziak.usecase.impl;
+package com.home.rudziak.usecase.interfaces.impl;
 
-import com.home.rudziak.usecase.Washer;
+import com.home.rudziak.usecase.interfaces.Washer;
 import com.home.rudziak.usecase.model.Car;
 
 public class AutomatedWasher implements Washer {

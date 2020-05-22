@@ -1,4 +1,4 @@
-package com.home.rudziak.usecase.impl;
+package com.home.rudziak.usecase.interfaces;
 
 public interface Recommendator {
 

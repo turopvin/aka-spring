@@ -1,4 +1,4 @@
-package com.home.rudziak.usecase.impl;
+package com.home.rudziak.core.configurator.annotations;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

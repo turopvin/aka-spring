@@ -1,4 +1,4 @@
-package com.home.rudziak.usecase;
+package com.home.rudziak.usecase.interfaces;
 
 import com.home.rudziak.usecase.model.Car;
 

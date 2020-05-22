@@ -1,7 +1,7 @@
 package com.home.rudziak.core.configurator.annotation_configurators;
 
 import com.home.rudziak.core.configurator.ObjectConfigurator;
-import com.home.rudziak.usecase.impl.InjectProperty;
+import com.home.rudziak.core.configurator.annotations.InjectProperty;
 import lombok.SneakyThrows;
 
 import java.io.BufferedReader;

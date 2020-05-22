@@ -3,8 +3,8 @@ package com.home.rudziak.core;
 import com.home.rudziak.core.config.Config;
 import com.home.rudziak.core.config.JavaConfigImpl;
 import com.home.rudziak.core.configurator.ObjectConfigurator;
-import com.home.rudziak.usecase.Washer;
-import com.home.rudziak.usecase.impl.AutomatedWasher;
+import com.home.rudziak.usecase.interfaces.Washer;
+import com.home.rudziak.usecase.interfaces.impl.AutomatedWasher;
 import lombok.SneakyThrows;
 
 import java.util.ArrayList;
