@@ -8,6 +8,9 @@ public class RecommendatorImpl implements Recommendator {
     @InjectProperty
     private String hotel;
 
+    public RecommendatorImpl() {
+        System.out.println("Recommendator was created");    }
+
     @Override
     public void recommend() {
         System.out.println("Stay and have the best night in " + hotel);

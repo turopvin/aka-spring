@@ -1,6 +1,7 @@
 package com.home.rudziak.usecase.interfaces.impl;
 
 import com.home.rudziak.core.configurator.annotations.InjectByType;
+import com.home.rudziak.core.configurator.annotations.PostConstruct;
 import com.home.rudziak.usecase.interfaces.Administrator;
 import com.home.rudziak.usecase.interfaces.Recommendator;
 import com.home.rudziak.usecase.model.Car;
@@ -9,6 +10,11 @@ public class AdministratorImpl implements Administrator {
 
     @InjectByType
     private Recommendator recommendator;
+
+    @PostConstruct
+    public void init() {
+        System.out.println(recommendator.getClass());
+    }
 
     @Override
     public void register(Car car) {
