@@ -51,6 +51,7 @@ public class ObjectFactory {
     private <T> void invokeInit(Class<T> implClass, T t) throws IllegalAccessException, InvocationTargetException {
         for (Method method : implClass.getDeclaredMethods()) {
             if (method.isAnnotationPresent(PostConstruct.class)) {
+                method.setAccessible(true);
                 method.invoke(t);
             }
         }
