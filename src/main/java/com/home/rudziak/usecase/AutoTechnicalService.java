@@ -25,7 +25,7 @@ public class AutoTechnicalService {
         Connection connection = DriverManager
                 .getConnection("jdbc:mysql://localhost:3333/cars", "artsiom", "password");
         final Statement statement = connection.createStatement();
-        final String initQuery = "CREATE TABLE cars (car_id VARCHAR(9) PRIMARY KEY, model VARCHAR(30))";
+        final String initQuery = "CREATE TABLE IF NOT EXISTS cars (car_id VARCHAR(9) PRIMARY KEY, model VARCHAR(30))";
         statement.execute(initQuery);
     }
 
