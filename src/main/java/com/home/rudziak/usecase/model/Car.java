@@ -9,4 +9,5 @@ import lombok.Setter;
 @Setter
 public class Car {
     private String model;
+    private String serialNumber;
 }
