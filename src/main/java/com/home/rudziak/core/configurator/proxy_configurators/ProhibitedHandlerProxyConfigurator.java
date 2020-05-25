@@ -15,17 +15,17 @@ public class ProhibitedHandlerProxyConfigurator implements ProxyConfigurator {
     public Object replaceWithProxy(Object t, Class implClass) {
         if (implClass.isAnnotationPresent(Prohibited.class)) {
             if (implClass.getInterfaces().length == 0) {
-                return Enhancer.create(implClass, (InvocationHandler) (proxy, method, args) -> getInvocationHandlerLogix(t, method, args));
+                return Enhancer.create(implClass, (InvocationHandler) (proxy, method, args) -> getInvocationHandlerLogic(t, method, args));
             }
 
             return Proxy.newProxyInstance(implClass.getClassLoader(), implClass.getInterfaces(),
-                    (proxy, method, args) -> getInvocationHandlerLogix(t, method, args));
+                    (proxy, method, args) -> getInvocationHandlerLogic(t, method, args));
         } else {
             return t;
         }
     }
 
-    private Object getInvocationHandlerLogix(Object t, Method method, Object[] args) throws IllegalAccessException, InvocationTargetException {
+    private Object getInvocationHandlerLogic(Object t, Method method, Object[] args) throws IllegalAccessException, InvocationTargetException {
         System.out.println("**************** что ж ты делаешь урод!*********");
         return method.invoke(t, args);
     }
