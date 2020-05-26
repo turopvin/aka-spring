@@ -2,6 +2,7 @@ package com.home.rudziak.core.config;
 
 import org.reflections.Reflections;
 
+import javax.sql.DataSource;
 import java.util.Map;
 import java.util.Set;
 
@@ -9,6 +10,7 @@ public class JavaConfigImpl implements Config {
 
     private Reflections scanner;
     private Map<Class, Class> ifc2implClass;
+    private DataSource dataSource;
 
     public JavaConfigImpl(String packageToScan, Map<Class, Class> ifc2implClass) {
         this.scanner = new Reflections(packageToScan);
